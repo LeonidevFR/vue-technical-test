@@ -37,14 +37,7 @@
       <span class="text--medium font--md main-dark">Prix total TTC</span>
       <span class="text--medium font--md main-dark">{{ totalPrice }} €</span>
     </div>
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 40px;
-      "
-    >
+    <div class="button-group__container">
       <ArticleButton :disabled="disabled" @onClick="save">
         Enregistrer l'article
       </ArticleButton>
@@ -124,8 +117,17 @@ export default {
 
 <style scoped lang="scss">
 .container {
+  height: max-content;
+  position: sticky;
+  top: 8px;
   background-color: #fff;
   padding: 16px;
   border-radius: 4px;
+}
+.button-group__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0 24px 0;
 }
 </style>

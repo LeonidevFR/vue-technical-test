@@ -8,11 +8,11 @@
         min="0"
         :type="type"
         :placeholder="placeholder"
-        :class="`${inputClass} ${hasIcon ? 'input-icon__input' : ''}`"
+        :class="`${inputClass} ${hasIcon ? 'article-input-icon__input' : ''}`"
         :value="value"
         @input="updateValue($event.target.value)"
       />
-      <div v-if="hasIcon" class="input-icon__icon">
+      <div v-if="hasIcon" class="article-input-icon__icon">
         <slot></slot>
       </div>
     </div>
@@ -106,12 +106,12 @@ export default {
   border: 2px solid #d5dde5;
   border-radius: 8px;
 }
-.input-icon__input {
+.article-input-icon__input {
   width: 100%;
   text-align: right;
   padding-right: 38px;
 }
-.input-icon__icon {
+.article-input-icon__icon {
   height: 46px;
   width: 30px;
   border-top-right-radius: 8px;
