@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" style="overflow: hidden">
       <h1 class="text--demibold font--lg main-dark" style="padding: 16px">
         Mes articles
       </h1>
@@ -14,7 +14,7 @@
         <i class="fas fa-chevron-right"></i>
       </div>
     </div>
-    <div style="display: flex; justify-content: center; margin-top: 32px">
+    <div style="display: flex; justify-content: center; margin: 32px 0">
       <ArticleButton :rounded="true" @onClick="$emit('onAddArticle')">
         +
       </ArticleButton>

@@ -68,6 +68,7 @@ export default {
 
 <style scoped lang="scss">
 .article-page__container {
+  position: relative;
   height: 100%;
   width: 100%;
   display: grid;
