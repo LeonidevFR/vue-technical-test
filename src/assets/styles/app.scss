@@ -1,0 +1,61 @@
+/* Fonts */
+@font-face {
+  font-family: "tt_chocolates_medium";
+  src: url("/src/assets/fonts/tt_chocolates_medium.otf");
+}
+@font-face {
+  font-family: "tt_chocolates_demibold";
+  src: url("/src/assets/fonts/tt_chocolates_demibold.otf");
+}
+@font-face {
+  font-family: "tt_chocolates_bold";
+  src: url("/src/assets/fonts/tt_chocolates_bold.otf");
+}
+
+/* Utility Classes */
+.text--medium {
+  font-family: "tt_chocolates_medium", sans-serif;
+}
+.text--demibold {
+  font-family: "tt_chocolates_demibold", sans-serif;
+}
+.text--bold {
+  font-family: "tt_chocolates_bold", sans-serif;
+}
+.font--sm {
+  font-size: 12px;
+}
+.font--md {
+  font-size: 16px;
+}
+.font--lg {
+  font-size: 24px;
+}
+.main-dark {
+  color: #151f2a;
+}
+.main-light {
+  color: #404d5c;
+}
+.main-grey {
+  color: #727f8f;
+}
+
+/* General App Styles */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
