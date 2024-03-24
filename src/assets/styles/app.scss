@@ -79,3 +79,40 @@ button {
   cursor: pointer;
   outline: inherit;
 }
+
+/* Article feature related Styles */
+.article-page__container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  gap: 16px;
+  padding: 8px;
+}
+.close-edit__icon {
+  display: none;
+}
+
+/* Media queries */
+@media screen and (max-width: 599px) {
+  .article-page__container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 8px;
+  }
+  .close-edit__icon {
+    display: block;
+  }
+  .hide-section {
+    display: none;
+  }
+  .article-list__add-button {
+    position: absolute;
+    bottom: 12px;
+  }
+}
