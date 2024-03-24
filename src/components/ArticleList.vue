@@ -15,7 +15,11 @@
       </div>
     </div>
     <div style="display: flex; justify-content: center; margin: 32px 0">
-      <ArticleButton :rounded="true" @onClick="$emit('onAddArticle')">
+      <ArticleButton
+        class="article-list__add-button"
+        :rounded="true"
+        @onClick="$emit('onAddArticle')"
+      >
         +
       </ArticleButton>
     </div>

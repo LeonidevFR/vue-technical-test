@@ -1,17 +1,26 @@
 <template>
   <div class="article-page__container">
     <ArticleList
+      :class="closeEdit ? '' : 'hide-section'"
       :article-list="articleList"
-      @onEditArticle="selectedArticleIndex = $event"
-      @onAddArticle="selectedArticleIndex = null"
+      @onEditArticle="
+        selectedArticleIndex = $event;
+        closeEdit = false;
+      "
+      @onAddArticle="
+        selectedArticleIndex = null;
+        closeEdit = false;
+      "
     />
     <ArticleWrite
+      :class="closeEdit ? 'hide-section' : ''"
       :selected="selectedArticle"
       :is-new="selectedArticleIndex === null"
       @onSave="
         selectedArticleIndex === null ? addArticle($event) : saveArticle($event)
       "
       @onDeleteArticle="deleteArticle"
+      @onCloseEdit="closeEdit = true"
     />
   </div>
 </template>
@@ -30,6 +39,7 @@ export default {
     return {
       selectedArticleIndex: null,
       articleList: [],
+      closeEdit: false,
     };
   },
   computed: {
@@ -47,10 +57,12 @@ export default {
   methods: {
     saveArticle(value) {
       this.$set(this.articleList, this.selectedArticleIndex, value);
+      this.closeEdit = true;
     },
     addArticle(value) {
       this.articleList.push(value);
       this.selectedArticleIndex = this.articleList.length - 1;
+      this.closeEdit = true;
     },
     deleteArticle() {
       if (
@@ -60,20 +72,9 @@ export default {
       ) {
         this.articleList.splice(this.selectedArticleIndex, 1);
         this.selectedArticleIndex = null;
+        this.closeEdit = true;
       }
     },
   },
 };
 </script>
-
-<style scoped lang="scss">
-.article-page__container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 8fr 4fr;
-  gap: 16px;
-  padding: 8px;
-}
-</style>

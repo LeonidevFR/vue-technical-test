@@ -1,8 +1,22 @@
 <template>
   <div class="container">
-    <h1 class="text--demibold font--lg main-dark" style="margin-bottom: 16px">
-      {{ isNew ? "Ajouter un article" : "Éditer un article" }}
-    </h1>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      "
+    >
+      <h1 class="text--demibold font--lg main-dark">
+        {{ isNew ? "Ajouter un article" : "Éditer un article" }}
+      </h1>
+      <i
+        class="fas fa-xmark fa-lg close-edit__icon"
+        style="cursor: pointer"
+        @click="$emit('onCloseEdit')"
+      ></i>
+    </div>
     <ArticleInput
       :value="localValue.name"
       placeholder="Nom de l'article"
