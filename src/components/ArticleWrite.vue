@@ -1,69 +1,71 @@
 <template>
   <div class="container">
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-      "
-    >
-      <h1 class="text--demibold font--lg main-dark">
-        {{ isNew ? "Ajouter un article" : "Éditer un article" }}
-      </h1>
-      <i
-        class="fas fa-xmark fa-lg close-edit__icon"
-        style="cursor: pointer"
-        @click="$emit('onCloseEdit')"
-      ></i>
-    </div>
-    <ArticleInput
-      :value="localValue.name"
-      placeholder="Nom de l'article"
-      input-class="text--medium font--md main-light article-input__text"
-      @input="localValue.name = $event"
-    />
-    <ArticleInput
-      :value="localValue.price"
-      :has-icon="true"
-      placeholder="50"
-      type="number"
-      input-class="text--medium font--md main-light article-input__text"
-      @input="localValue.price = $event"
-    >
-      <template #label> Prix unitaire HT </template>
-      <template #default> € </template>
-    </ArticleInput>
-    <ArticleInput
-      :value="localValue.vat"
-      :has-icon="true"
-      placeholder="20"
-      type="number"
-      input-class="text--medium font--md main-light article-input__text"
-      @input="localValue.vat = $event"
-    >
-      <template #label> TVA en % </template>
-      <template #default> % </template>
-    </ArticleInput>
-    <div
-      style="display: flex; justify-content: space-between; margin-top: 24px"
-    >
-      <span class="text--medium font--md main-dark">Prix total TTC</span>
-      <span class="text--medium font--md main-dark">{{ totalPrice }} €</span>
-    </div>
-    <div class="button-group__container">
-      <ArticleButton :disabled="disabled" @onClick="save">
-        Enregistrer l'article
-      </ArticleButton>
-      <ArticleButton
-        color="error"
-        style="margin-top: 16px"
-        :disabled="isNew"
-        @onClick="$emit('onDeleteArticle')"
+    <form @submit.prevent="save">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 16px;
+        "
       >
-        Supprimer l'article
-      </ArticleButton>
-    </div>
+        <h1 class="text--demibold font--lg main-dark">
+          {{ isNew ? "Ajouter un article" : "Éditer un article" }}
+        </h1>
+        <i
+          class="fas fa-xmark fa-lg close-edit__icon"
+          style="cursor: pointer"
+          @click="$emit('onCloseEdit')"
+        ></i>
+      </div>
+      <ArticleInput
+        :value="localValue.name"
+        placeholder="Nom de l'article"
+        input-class="text--medium font--md main-light article-input__text"
+        @input="localValue.name = $event"
+      />
+      <ArticleInput
+        :value="localValue.price"
+        :has-icon="true"
+        placeholder="50"
+        type="number"
+        input-class="text--medium font--md main-light article-input__text"
+        @input="localValue.price = $event"
+      >
+        <template #label> Prix unitaire HT </template>
+        <template #default> € </template>
+      </ArticleInput>
+      <ArticleInput
+        :value="localValue.vat"
+        :has-icon="true"
+        placeholder="20"
+        type="number"
+        input-class="text--medium font--md main-light article-input__text"
+        @input="localValue.vat = $event"
+      >
+        <template #label> TVA en % </template>
+        <template #default> % </template>
+      </ArticleInput>
+      <div
+        style="display: flex; justify-content: space-between; margin-top: 24px"
+      >
+        <span class="text--medium font--md main-dark">Prix total TTC</span>
+        <span class="text--medium font--md main-dark">{{ totalPrice }} €</span>
+      </div>
+      <div class="button-group__container">
+        <ArticleButton :disabled="disabled" type="submit">
+          Enregistrer l'article
+        </ArticleButton>
+        <ArticleButton
+          color="error"
+          style="margin-top: 16px"
+          :disabled="isNew"
+          @onClick="$emit('onDeleteArticle')"
+        >
+          Supprimer l'article
+        </ArticleButton>
+      </div>
+    </form>
   </div>
 </template>
 

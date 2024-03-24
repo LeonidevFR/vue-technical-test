@@ -4,15 +4,17 @@
       <h1 class="text--demibold font--lg main-dark" style="padding: 16px">
         Mes articles
       </h1>
-      <div
-        v-for="(article, i) in articleList"
-        :key="i"
-        class="text--medium font--md main-light article-list__item"
-        @click="$emit('onEditArticle', i)"
-      >
-        {{ article.name }}
-        <i class="fas fa-chevron-right"></i>
-      </div>
+      <ul style="padding: 0">
+        <li
+          v-for="(article, i) in articleList"
+          :key="i"
+          class="text--medium font--md main-light article-list__item"
+          @click="$emit('onEditArticle', i)"
+        >
+          {{ article.name }}
+          <i class="fas fa-chevron-right"></i>
+        </li>
+      </ul>
     </div>
     <div style="display: flex; justify-content: center; margin: 32px 0">
       <ArticleButton
